@@ -2,12 +2,14 @@
 
 // Express
 const express = require('express');
+const path = require('path');
 const app = express();
 
 // Third party packages
 const config = require('config');
 const helmet = require('helmet');
 const cJson = require('circular-json');
+const favicon = require('serve-favicon');
 
 // Custom middlewares
 const notFoundHandler = require('./utils/404-handler');
@@ -20,11 +22,12 @@ const genres = require('./routes/genres');
 app.set('view engine','pug');
 app.set('views', './views');
 
-/* Configuring Helmet and Request Body JSON */
+/* Configuring Helmet, Request Body JSON & Favicon */
 if(process.env.NODE_ENV == 'production' && app.get('env') == 'production')
     app.use(helmet());
 
 app.use(express.json());
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 /* Configuring End */
 
 
@@ -38,14 +41,16 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('/config', (req, res, next) => {
-    let configString = `Application Name: ${config.get('name')}\r\n`;
-    configString += (app.get('env') == 'production' || app.get('env') == 'development')? 
-        `Mail:\r\n`+
-            `\tHost: ${config.get('mail.host')}\r\n`+
-            `\tHost: ${config.get('mail.password')}\r\n`
-        :``;
+    const configJSON = {
+        "ApplicationName" : config.has('name') ? config.get('name') : undefined,
+        "Mail" : {
+            "Host" : config.has('mail.host') ? config.get('mail.host') : undefined,
+            "Password" : config.has('mail.password') ? config.get('mail.password') : undefined
+        },
+    };
 
-    res.status(200).send(configString);
+    console.log(configJSON);
+    res.status(200).send(configJSON);
     next();
 });
 
