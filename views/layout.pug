@@ -2,34 +2,36 @@
 mixin sidebar
   nav#sidebar.active
     .sidebar-header
-      h3 Bootstrap Sidebar
+      h3 Hazem Gharib
     ul.list-unstyled.components
-      p Dummy Heading
+      p Full Stack Developer
       
       // li.active
       li
-        a(href='#homeSubmenu' data-toggle='collapse' aria-expanded='false') Home
+        a(href='#homeSubmenu' data-toggle='collapse' aria-expanded='false') Profile
         ul#homeSubmenu.collapse.list-unstyled
           li
-            a(href='#') Home 1
+            a(href='/profile') Profile 1
           li
-            a(href='#') Home 2
+            a(href='/profile') Profile 2
           li
-            a(href='#') Home 3
+            a(href='/profile') Profile 3
       li
-        a(href='#') About
-        a(href='#pageSubmenu' data-toggle='collapse' aria-expanded='false') Pages
+        a(href='/contact') Contact
+      li
+        a(href='#pageSubmenu' data-toggle='collapse' aria-expanded='false') Previous Experience
         ul#pageSubmenu.collapse.list-unstyled
           li
-            a(href='#') Page 1
+            a(href='/experience') Previous Experience 1
           li
-            a(href='#') Page 2
+            a(href='/experience') Previous Experience 2
           li
-            a(href='#') Page 3
+            a(href='/experience') Previous Experience 3
       li
-        a(href='#') Portfolio
+        a(href='/portfolio') Portfolio
       li
-        a(href='#') Contact
+        a(href='/skills') Skills
+    
     //- ul.list-unstyled.CTAs
     //-   li
     //-     a.download(href='https://bootstrapious.com/tutorial/files/sidebar.zip') Download source
@@ -63,16 +65,19 @@ head
             span
             span
             span
+          
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='#') Page
+              a(href='/profile') Profile
             li
-              a(href='#') Page
+              a(href='/contact') Contact
             li
-              a(href='#') Page
+              a(href='/experience') Previous Experience
             li
-              a(href='#') Page
+              a(href='/skills') Skills
+      
+      
     block content
 // jQuery CDN
 script(src='https://code.jquery.com/jquery-1.12.0.min.js')

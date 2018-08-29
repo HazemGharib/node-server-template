@@ -33,7 +33,7 @@ app.use(express.static(__dirname + '/public'));
 
 
 /* Application Routes */
-app.get('/', (req, res, next) => {
+app.get(['/','/profile'], (req, res, next) => {
     res.status(200).render(`profile`,{
         title: "Genres API",
         message: "Hello World!!"
