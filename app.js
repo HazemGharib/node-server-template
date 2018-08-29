@@ -28,12 +28,13 @@ if(process.env.NODE_ENV == 'production' && app.get('env') == 'production')
 
 app.use(express.json());
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
+app.use(express.static(__dirname + '/public'));
 /* Configuring End */
 
 
 /* Application Routes */
 app.get('/', (req, res, next) => {
-    res.status(200).render(`index`,{
+    res.status(200).render(`profile`,{
         title: "Genres API",
         message: "Hello World!!"
     });
