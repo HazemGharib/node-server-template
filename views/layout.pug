@@ -8,36 +8,24 @@ mixin sidebar
       
       // li.active
       li
-        a(href='#homeSubmenu' data-toggle='collapse' aria-expanded='false') Profile
-        ul#homeSubmenu.collapse.list-unstyled
-          li
-            a(href='/profile') Profile 1
-          li
-            a(href='/profile') Profile 2
-          li
-            a(href='/profile') Profile 3
+        a(href='/profile') Profile
+        //- a(href='#homeSubmenu' data-toggle='collapse' aria-expanded='false') Profile
+        //- ul#homeSubmenu.collapse.list-unstyled
+        //-   li
+        //-     a(href='/profile') Profile 1
+        //-   li
+        //-     a(href='/profile') Profile 2
+        //-   li
+        //-     a(href='/profile') Profile 3
       li
         a(href='/contact') Contact
       li
-        a(href='#pageSubmenu' data-toggle='collapse' aria-expanded='false') Previous Experience
-        ul#pageSubmenu.collapse.list-unstyled
-          li
-            a(href='/experience') Previous Experience 1
-          li
-            a(href='/experience') Previous Experience 2
-          li
-            a(href='/experience') Previous Experience 3
+        a(href='/experience') Previous Experience
       li
         a(href='/portfolio') Portfolio
       li
         a(href='/skills') Skills
-    
-    //- ul.list-unstyled.CTAs
-    //-   li
-    //-     a.download(href='https://bootstrapious.com/tutorial/files/sidebar.zip') Download source
-    //-   li
-    //-     a.article(href='https://bootstrapious.com/p/bootstrap-sidebar') Back to article
-  
+
 head
   meta(charset='utf-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
@@ -46,8 +34,10 @@ head
   
   // Bootstrap CSS CDN
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
-  // Our Custom CSS
+  // Custom CSS
   link(rel='stylesheet' href='/styles/style.css')
+  
+  // Favicon
   link(rel="SHORTCUT ICON", href="/favicon.ico")
   link(rel="icon", href="/favicon.ico", type="image/ico")
 
@@ -57,7 +47,7 @@ head
   +sidebar
   
   // Page Content Holder
-  #content
+  #content.container-fluid
     nav.navbar.navbar-default
       .container-fluid
         .navbar-header
@@ -85,8 +75,8 @@ script(src='https://code.jquery.com/jquery-1.12.0.min.js')
 script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
 script(type='text/javascript').
   $(document).ready(function () {
-  $('#sidebarCollapse').on('click', function () {
-  $('#sidebar').toggleClass('active');
-  $(this).toggleClass('active');
-  });
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+      $(this).toggleClass('active');
+    });
   });
