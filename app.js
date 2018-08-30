@@ -18,10 +18,10 @@ const requestLogger = require('./utils/request-logger');
 // Routers
 const genres = require('./routes/genres');
 
-// Global variables
-let sideBarToggle = false;
+// // Global variables
+// let sideBarToggle = false;
 
-// Setting view engine
+// // Setting view engine
 app.set('view engine','pug');
 app.set('views', './views');
 
@@ -39,8 +39,7 @@ app.use(express.static(__dirname + '/public'));
 app.get(['/','/profile'], (req, res, next) => {
     res.status(200).render(`profile`,{
         title: "Hazem Gharib [Full Stack Developer] - Profile",
-        message: "Hello World!!",
-        sideBarState: sideBarToggle
+        message: "Hello World!!"
     });
     next();
 });
@@ -48,8 +47,7 @@ app.get(['/','/profile'], (req, res, next) => {
 app.get('/contact', (req, res, next) => {
     res.status(200).render(`contact`,{
         title: "Hazem Gharib [Full Stack Developer] - Contact",
-        message: "Hello World!!",
-        sideBarState: sideBarToggle
+        message: "Hello World!!"
     });
     next();
 });
@@ -57,8 +55,7 @@ app.get('/contact', (req, res, next) => {
 app.get('/experience', (req, res, next) => {
     res.status(200).render(`experience`,{
         title: "Hazem Gharib [Full Stack Developer] - Previous Experience",
-        message: "Hello World!!",
-        sideBarState: sideBarToggle
+        message: "Hello World!!"
     });
     next();
 });
@@ -66,8 +63,7 @@ app.get('/experience', (req, res, next) => {
 app.get('/skills', (req, res, next) => {
     res.status(200).render(`skills`,{
         title: "Hazem Gharib [Full Stack Developer] - Skills",
-        message: "Hello World!!",
-        sideBarState: sideBarToggle
+        message: "Hello World!!"
     });
     next();
 });

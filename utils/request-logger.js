@@ -24,15 +24,15 @@ function requestLogger(req, res, next) {
 
     switch(res.statusCode){
     case 200:
-        console.log(`http://${req.hostname}${req.url}`,`\t [${res.statusCode}] \n`.green);
+        console.log(`http://${req.hostname}:${process.env.PORT|3000}${req.url}`,`\t [${res.statusCode}] \n`.green);
         break;
     case 400:
     case 404:
     case 500:
-        console.log(`http://${req.hostname}${req.url}`,`\t [${res.statusCode}] \n`.red);
+        console.log(`http://${req.hostname}:${process.env.PORT|3000}${req.url}`,`\t [${res.statusCode}] \n`.red);
         break;
     default:
-        console.log(`http://${req.hostname}${req.url}`,`\t [${res.statusCode}] \n`.yellow);
+        console.log(`http://${req.hostname}:${process.env.PORT|3000}${req.url}`,`\t [${res.statusCode}] \n`.yellow);
         break;
     }
     next();
